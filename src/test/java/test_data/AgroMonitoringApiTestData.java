@@ -26,6 +26,20 @@ public class AgroMonitoringApiTestData {
         geo_json.put("geometry",geometrySetUp());
         geo_json.put("type","Feature");
         geo_json.put("properties",properties);
+
+        return geo_json;
+    }
+
+    public float center[]={-121.1867F,37.6785F};
+
+    public Map<String, Object> requestBody(){
+        Map<String, Object> requestBody= new HashMap<>();
+        requestBody.put("geo_json",geo_JsonSetUp());
+        requestBody.put("name","Polygon Sample");
+        requestBody.put("center",center);
+        requestBody.put("area",190.9484);
+
+        return requestBody;
     }
 
 }
