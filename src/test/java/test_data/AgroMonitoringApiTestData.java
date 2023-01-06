@@ -41,5 +41,14 @@ public class AgroMonitoringApiTestData {
 
         return requestBody;
     }
+    public Map<String, Object> requestBody1(){
+        Map<String, Object> requestBody= new HashMap<>();
+        requestBody.put("geo_json",geo_JsonSetUp());
+        requestBody.put("name","Polygon Sample");
+        requestBody.put("center",center);
+        requestBody.put("area",190.9484);
+
+        return requestBody;
+    }
 
 }
