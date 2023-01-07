@@ -47,7 +47,7 @@ public class Post03 extends AgroMonitoringBaseUrl {
         assertTrue(json.getFloat("geo_json.geometry.coordinates[0][0][0]")==requestBody.coordinates[0][0][0]);
         assertTrue(json.getString("geo_json.geometry.type").equals(requestBody.geometrySetUp().get("type")));
         assertTrue(json.getString("geo_json.type").equals(requestBody.geo_JsonSetUp().get("type")));
-
+        assertTrue(json.getJsonObject("geo_json.properties").equals(requestBody.geo_JsonSetUp().get("properties")));
 
 
 
