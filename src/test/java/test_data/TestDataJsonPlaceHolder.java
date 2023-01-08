@@ -3,6 +3,7 @@ package test_data;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class TestDataJsonPlaceHolder {
 
@@ -10,16 +11,32 @@ public class TestDataJsonPlaceHolder {
     public String contentType="application/json; charset=utf-8";
     public String connectionHeaderDegeri="keep-alive";
 
-    public JSONObject expctedDataOlustur(){
+    public Map<String, Object> expctedDataOlustur(Integer userid, String title, Boolean completed){
 
-        JSONObject expectedDataJson=new JSONObject();
+        Map<String, Object> expectedDataJson=new HashMap<>();
 
-        expectedDataJson.put("userId",3);
-        expectedDataJson.put("id",22);
-        expectedDataJson.put("title","dolor sint quo a velit explicabo quia nam");
-        expectedDataJson.put("body","eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse");
+        expectedDataJson.put("userId",userid);
+        expectedDataJson.put("title",title);
+        expectedDataJson.put("completed",completed);
+
 
         return expectedDataJson;
+    }
+
+    public Map<String, Object> expectedDataWithMissingKeys(Integer userid, String title, Boolean completed){
+
+        Map<String, Object> expectedData=new HashMap<>();
+        if (userid!=null){
+            expectedData.put("userId",userid);
+        }
+        if (title!=null){
+            expectedData.put("title",title);
+        }
+        if (completed!=null){
+            expectedData.put("completed",completed);
+        }
+        return expectedData;
+
     }
 
     public JSONObject putRequestBodyOlustur() {
