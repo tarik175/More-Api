@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.BookingDatesPojo;
 import pojos.BookingPojo;
-
+import pojos.BookingResponseBodyPojo;
 
 
 import static io.restassured.RestAssured.given;
@@ -29,14 +29,25 @@ public class Post05Pojo extends BaseUrlHerokuapp1 {
 
 
 
-        BookingPojo actualPojo=response.as(BookingPojo.class);
+        BookingResponseBodyPojo actualPojo=response.as(BookingResponseBodyPojo.class);
 
 
         assertEquals(200,response.getStatusCode());
 
-        assertEquals(bookingPojo.getFirstname(),actualPojo.getFirstname());
+        assertEquals(bookingPojo.getFirstname(),actualPojo.getBooking().getFirstname());
 
-        assertEquals(bookingPojo.getLastname(),actualPojo.getLastname());
+        assertEquals(bookingPojo.getLastname(),actualPojo.getBooking().getLastname());
+
+        assertEquals(bookingPojo.getBookingdates().getCheckin(),actualPojo.getBooking().getBookingdates().getCheckin());
+
+
+        assertEquals(bookingDates.getCheckout(),actualPojo.getBooking().getBookingdates().getCheckout());
+
+
+
+
+
+
 
 
 

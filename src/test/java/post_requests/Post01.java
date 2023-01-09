@@ -17,13 +17,13 @@ public class Post01 extends BaseUrlHerokuapp1 {
 
     @Test
     public void post01(){
-        specHerokuapp.pathParam("first","booking");
+        spec.pathParam("first","booking");
         HerokuAppTestData herokuApp=new HerokuAppTestData();
         Map<String,String> bookingDatesMap=herokuApp.bookingDateSetup("2020-09-09","2020-09-21");
         Map<String, Object> expectedDataMap=herokuApp.expectedDataSetUp("Selim","Ak",11111,true,bookingDatesMap);
 
 
-        Response response=given().spec(specHerokuapp).contentType(ContentType.JSON).body(expectedDataMap).when().post("/{first}");
+        Response response=given().spec(spec).contentType(ContentType.JSON).body(expectedDataMap).when().post("/{first}");
         response.prettyPrint();
 
         Map<String, Object> actualDataMap=response.as(HashMap.class);
