@@ -16,7 +16,7 @@ public class Get14ObjectMapper extends BaseUrlJsonPlaceHolder {
 
 
     @Test
-    public void get14ObjectMapper(){
+    public void get01ObjectMapper(){
 
         spec.pathParams("first","todos","second",198);
 
@@ -36,6 +36,23 @@ public class Get14ObjectMapper extends BaseUrlJsonPlaceHolder {
         assertEquals(expectedDataMap.get("userId"),actualDataMap.get("userId"));
         assertEquals(expectedDataMap.get("title"),actualDataMap.get("title"));
         assertEquals(expectedDataMap.get("completed"),actualDataMap.get("completed"));
+
+
+
+    }
+
+    @Test
+    public void get02ObjectMapper(){
+        spec.pathParams("first","todos","second",198);
+
+        String expectedData = "{\n" +
+                "\"userId\": 10,\n" +
+                "\"id\": 198,\n" +
+                "\"title\": \"quis eius est sint explicabo\",\n" +
+                "\"completed\": true\n" +
+                "}";
+        HashMap<String, Object> expectedDataMap=JsonUtil.convertJsonToJavaObject(expectedData, HashMap.class);
+
 
 
 
